@@ -1,0 +1,156 @@
+/* ===========================================================
+   Car Shop SA — design system
+   =========================================================== */
+
+:root {
+  /* Brand palette */
+  --brand: #6a4cff;
+  --brand-dark: #5338e0;
+  --brand-glow: rgba(106, 76, 255, 0.35);
+  --accent: #00e0c6;
+
+  /* Neutrals */
+  --ink: #0e1018;
+  --ink-soft: #1a1d29;
+  --surface: #ffffff;
+  --surface-muted: #f4f5fa;
+  --line: #e7e8f0;
+  --text: #1d2030;
+  --text-soft: #6b7088;
+
+  /* Effects */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 8px rgba(16, 18, 33, 0.06);
+  --shadow: 0 12px 30px rgba(16, 18, 33, 0.1);
+  --shadow-lg: 0 24px 60px rgba(16, 18, 33, 0.18);
+  /* Smooth, slightly springy easing used across the UI */
+  --ease: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body:
+    'Balsamiq Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--surface-muted);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.btn-brand {
+  --bs-btn-color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 20px var(--brand-glow);
+  transition:
+    transform var(--ease),
+    box-shadow var(--ease),
+    filter var(--ease);
+}
+
+.btn-brand:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px var(--brand-glow);
+  filter: brightness(1.05);
+}
+
+.btn-ghost {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: all var(--ease);
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ---------- Section helpers ---------- */
+.section {
+  padding: 4rem 0;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-head .eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 0.6rem;
+}
+
+.section-head h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin: 0;
+}
+
+.section-head p {
+  color: var(--text-soft);
+  margin-top: 0.6rem;
+}
